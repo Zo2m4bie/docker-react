@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t Zo2m4bie/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true Zo2m4bie/docker-react npm run test -- --coverage
+# - docker run USERNAME/docker-react npm run test -- --coverage
+#  - docker run -e CI=true USERNAME/docker-react npm run test
+# language: generic 
